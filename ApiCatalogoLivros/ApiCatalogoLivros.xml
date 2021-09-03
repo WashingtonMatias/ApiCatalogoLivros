@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ApiCatalogoLivros</name>
+    </assembly>
+    <members>
+        <member name="M:ApiCatalogoLivros.Controllers.V1.LivrosController.Obter(System.Int32,System.Int32)">
+            <summary>
+            Buscar todos os livros de forma paginada
+            </summary>
+            <remarks>
+            Não é possível retornar os livros sem paginação
+            </remarks>
+            <param name="pagina">Indica qual página está sendo consultada. Mínimo 1</param>
+            <param name="quantidade">Indica a quantidade de reistros por página. Mínimo 1 e máximo 50</param>
+            <response code="200">Retorna a lista de livros</response>
+            <response code="204">Caso não haja livros</response> 
+        </member>
+        <member name="M:ApiCatalogoLivros.Controllers.V1.LivrosController.Obter(System.Guid)">
+            <summary>
+            Buscar um livro pelo seu Id
+            </summary>
+            <param name="idJogo">Id do livro buscado</param>
+            <response code="200">Retorna o livro filtrado</response>
+            <response code="204">Caso não haja livro com este id</response>   
+        </member>
+        <member name="M:ApiCatalogoLivros.Controllers.V1.LivrosController.InserirLivro(ApiCatalogoLivros.InputModel.LivroInputModel)">
+            <summary>
+            Inserir um livro no catálogo
+            </summary>
+            <param name="jogoInputModel">Dados do livro a ser inserido</param>
+            <response code="200">Cao o livro seja inserido com sucesso</response>
+            <response code="422">Caso já exista um livro com mesmo nome para a mesma produtora</response>   
+        </member>
+        <member name="M:ApiCatalogoLivros.Controllers.V1.LivrosController.AtualizarLivro(System.Guid,ApiCatalogoLivros.InputModel.LivroInputModel)">
+            <summary>
+            Atualizar um livro no catálogo
+            </summary>
+            /// <param name="idLivro">Id do livro a ser atualizado</param>
+            <param name="livroInputModel">Novos dados para atualizar o livro indicado</param>
+            <response code="200">Cao o livro seja atualizado com sucesso</response>
+            <response code="404">Caso não exista um livro com este Id</response>
+        </member>
+        <member name="M:ApiCatalogoLivros.Controllers.V1.LivrosController.AtualizarLivro(System.Guid,System.Double)">
+            <summary>
+            Atualizar o preço de um livro
+            </summary>
+            /// <param name="idLivro">Id do livro a ser atualizado</param>
+            <param name="preco">Novo preço do livro</param>
+            <response code="200">Cao o preço seja atualizado com sucesso</response>
+            <response code="404">Caso não exista um livro com este Id</response>
+        </member>
+        <member name="M:ApiCatalogoLivros.Controllers.V1.LivrosController.ApagarLivro(System.Guid)">
+            <summary>
+            Excluir um livro
+            </summary>
+            /// <param name="idLivro">Id do livro a ser excluído</param>
+            <response code="200">Cao o preço seja atualizado com sucesso</response>
+            <response code="404">Caso não exista um livro com este Id</response>   
+        </member>
+    </members>
+</doc>
